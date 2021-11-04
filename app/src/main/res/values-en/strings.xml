@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ConvertApp</string>
+    <string name="main_title">Convert Temperature</string>
+    <string name="degrees_celsius">°C</string>
+    <string name="degrees_fahrenheit">°F</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="title_celsius">degrees centigrade</string>
+    <string name="title_fahrenheit">degrees fahrenheit</string>
+    <string name="calculate">Convert</string>
+    <string name="result">Result</string>
+    <string name="value">Enter</string>
+    <string name="change">Change conversion</string>
+</resources>

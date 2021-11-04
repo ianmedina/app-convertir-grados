@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ConvertApp</string>
+    <string name="main_title">Convertir Temperatura</string>
+    <string name="degrees_celsius">°C</string>
+    <string name="degrees_fahrenheit">°F</string>
+    <string name="from">Desde</string>
+    <string name="to">A</string>
+    <string name="title_celsius">grados centígrados</string>
+    <string name="title_fahrenheit">grados fahrenheit</string>
+    <string name="calculate">Convertir</string>
+    <string name="result">Resultado</string>
+    <string name="value">Ingresar</string>
+    <string name="change">Cambiar conversión</string>
+</resources>
