@@ -11,4 +11,5 @@
     <string name="result">Resultado</string>
     <string name="value">Ingresar</string>
     <string name="change">Cambiar conversión</string>
+    <string name="message">Debes ingresar un valor</string>
 </resources>

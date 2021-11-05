@@ -2,10 +2,12 @@ package facci.pabloproano.convertapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,36 +51,49 @@ public class MainActivity extends AppCompatActivity {
     // Presionar convertir
     public void convert(View view){
 
-        // Extrae el valor ingresado
+        // Comprobar el valor ingresado
         String valueString = et_valor.getText().toString();
-        float valueFloat = Float.parseFloat(valueString);
 
-        // Controlar el estado de conversión
-        String verify_change = tv_izquierda.getText().toString();
-
-        if(verify_change.equals("°C")){
-            float fahrenheit = celsiusAFahrenheit(valueFloat);
-            double roundFahrenheit = round(fahrenheit);
-            String result = Double.toString(roundFahrenheit);
-            tv_resultado.setText(result);
+        if(valueString.isEmpty()){
+            showMessage();
         }else{
-            float celsius = fahrenheitACelsius(valueFloat);
-            double roundCelsius = round(celsius);
-            String result = Double.toString(roundCelsius);
-            tv_resultado.setText(result);
+
+            // Controlar el estado de conversión
+            String verify_change = tv_izquierda.getText().toString();
+            float valueFloat = Float.parseFloat(valueString);
+
+            if(verify_change.equals("°C")){
+                celsiusAFahrenheit(valueFloat);
+            }else{
+                fahrenheitACelsius(valueFloat);
+            }
         }
     }
 
+    // Validar campo vacío
+    public void showMessage(){
+        Context context = getApplicationContext();
+        int text = R.string.message;
+        int duration = Toast.LENGTH_SHORT;
+        Toast.makeText(context, text, duration).show();
+    }
+
     // Métodos para la conversión y redondear
-    public static float celsiusAFahrenheit(float celsius) {
-        return (celsius * 1.8f) + 32;
+    public void celsiusAFahrenheit(float celsius) {
+        float fahrenheit = (celsius * 1.8f) + 32;
+        double roundFahrenheit = round(fahrenheit);
+        String result = Double.toString(roundFahrenheit);
+        tv_resultado.setText(result);
     }
 
-    public static float fahrenheitACelsius(float fahrenheit) {
-        return (fahrenheit - 32) / 1.8f;
+    public void fahrenheitACelsius(float fahrenheit) {
+        float celsius = (fahrenheit - 32) / 1.8f;
+        double roundCelsius = round(celsius);
+        String result = Double.toString(roundCelsius);
+        tv_resultado.setText(result);
     }
 
-    private static double round(double value) {
+    private static double round(float value) {
         return Math.round(value * 100.0) / 100.0;
     }
 }
